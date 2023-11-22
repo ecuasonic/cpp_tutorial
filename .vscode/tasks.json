@@ -1,0 +1,89 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "Build GCC",
+			"command": "C:\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-g",
+				"-std=c++23",
+				"-o",
+				"${fileDirname}\\recent.exe",
+				"${file}"
+
+				// '-g': Generates debugging information
+				// '-Wall': Enables most warning messages
+				// '-Wextra': Enables additional warning messages
+				// '-std=<standard>': Specific the C++ language standard (e.g. '-std=c++14' or '-std=c++17')
+				// '02' or '03': Enables various levels of optimization
+				// '-I<directory>': Adds a directory to the include file search path 
+				// '-D<macro>': Defines a macro (e.g. '-DDEBUG')
+				// 'c': Compiles without linking
+				// '-o <output>': Specifies the name of the output file
+
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compiler: C:\\mingw64\\bin\\g++.exe"
+		},
+		{
+			"type": "cppbuild",
+			"label": "Build with MSVC",
+			"command": "cl.exe",
+			"args": [
+				"/Zi", 
+				"/std:c++latest",
+				"/EHsc",
+				"/Fe:",
+				"${fileDirname}\\recent.exe",
+				"/Fo:${fileDirname}\\recent.obj",
+				"${file}"
+
+				// 'std': Specifies the C++ language standard to use (e.g., '/std:c++14' or '/std:c++17')
+				// '/EHsc': Enables standard C++ exception handling using SEH (Structured Exception Handling)
+				// 'Zi': Generates debugging information by generating a program database (PDB) file
+				// '/02' or '/0x': Enables various levels of optimization
+				// '/W3' or '/Wall': Sets the warning level (e.g., warning level 3 or all warnings)
+				// '/I': Adds a directory to the include file search path
+				// '/D': Defines a macro (e.g. '/DDEBUG')
+				// '/Fo': Specifies the name of the output file
+				// '/Fe': Specifies the name of the executable file
+				// '/c': Compiles without linking
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build",
+			"detail": "compiler: cl.exe"
+		},
+		{
+			"type": "cppbuild",
+			"label": "Build with Clang",
+			"command": "C:\\mingw64\\bin\\clang++.exe",
+			"args": [
+				"-g",
+				"-std=c++23",
+				"${file}",
+				"-o",
+				"${fileDirname}\\recent.exe"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compiler: C:\\mingw64\\bin\\clang++.exe"
+		}
+	]
+}
